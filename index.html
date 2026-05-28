@@ -719,6 +719,31 @@ body::before {
   font-style: italic;
 }
 
+/* CTA — чат с ведущим */
+.host-cta {
+  margin-top: 64px;
+  padding-top: 48px;
+  border-top: 1px solid var(--line);
+  text-align: center;
+}
+.host-cta__lbl {
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+.host-cta__text {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 17px;
+  color: var(--ink-soft);
+  max-width: 480px;
+  margin: 0 auto 28px;
+  line-height: 1.6;
+}
+
 /* ============== DRESSCODE ============== */
 .dresscode { text-align: center; position: relative; z-index: 2; }
 .dresscode__title {
@@ -1585,6 +1610,17 @@ footer .dot { color: var(--blue); }
         </div>
         <div class="rsvp__status" id="rsvp-status" aria-live="polite"></div>
       </form>
+      <div class="host-cta reveal">
+        <div class="host-cta__lbl">для гостей</div>
+        <p class="host-cta__text">
+          Ведущий вечера соберёт небольшие истории и предложения поздравлений заранее,
+          а после свадьбы туда будем скидывать фотографии —
+          присоединяйтесь к чату, чтобы быть на связи.
+        </p>
+        <a class="btn btn--ghost" href="https://t.me/+0iLuqrWidPhhMGQy" target="_blank" rel="noopener">
+          Чат с ведущим →
+        </a>
+      </div>
     </div>
   </div>
 </section>

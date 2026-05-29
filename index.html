@@ -1595,6 +1595,11 @@ footer .dot { color: var(--blue); }
           </select>
         </div>
 
+        <div class="field" id="plus-one-field" style="display: none;">
+          <label for="plus_one">Имя и фамилия вашей пары</label>
+          <input type="text" id="plus_one" name="plus_one" autocomplete="off" />
+        </div>
+
         <div class="field">
           <label for="diet">Есть ли пищевые ограничения?</label>
           <textarea id="diet" name="diet" placeholder="Например: аллергии, вегетарианство…"></textarea>
@@ -1736,6 +1741,23 @@ const FORMSPREE_URL = 'https://formspree.io/f/xkoepwyb';
   const form = document.getElementById('rsvp-form');
   const status = document.getElementById('rsvp-status');
   if (!form) return;
+
+  // Показываем поле "пара" только если выбрано "с парой"
+  const companySelect = document.getElementById('company');
+  const plusOneField = document.getElementById('plus-one-field');
+  const plusOneInput = document.getElementById('plus_one');
+  if (companySelect && plusOneField) {
+    companySelect.addEventListener('change', function() {
+      if (companySelect.value === 'с парой') {
+        plusOneField.style.display = 'flex';
+        plusOneInput.required = true;
+      } else {
+        plusOneField.style.display = 'none';
+        plusOneInput.required = false;
+        plusOneInput.value = '';
+      }
+    });
+  }
 
   form.addEventListener('submit', async function(e) {
     e.preventDefault();
